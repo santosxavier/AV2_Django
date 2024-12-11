@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<div class="container">
+    <h1> Confirmar exclusão</h1>
+    <h2>Você tem certeza que deseja excluir o produto {{ produto.nome }}?</h2>
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="Confirmar Exclusão">
+    </form>
+
+    <a href="{% url 'produto-list' %}"><button class="btn btn-danger">Cancelar</button></a>
+</div>
+
+{% endif %}
+
+{% endblock %}

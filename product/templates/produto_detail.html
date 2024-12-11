@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<div>
+    <h1>Detalhes do produto</h1>
+    <ul>
+        <li><strong>ID:</strong>{{ produto.id }}</li>
+        <li><strong>Nome:</strong>{{ produto.nome }}</li>
+        <li><strong>Descrição:</strong>{{ produto.descricao }}</li>
+        <li><strong>Valor:</strong>{{ produto.preco }}</li>
+    </ul>
+    <button onclick="window.history.back()" class="btn btn-danger">Voltar</button>
+    <button onclick="window.location.href = '/produto/{{ produto.id }}/update/'">Alterar</button>
+    <button onclick="window.location.href = '/produto/{{ produto.id }}/delete/'">Deletar</button>
+</div>
+
+{% endif %}
+
+{% endblock %}
